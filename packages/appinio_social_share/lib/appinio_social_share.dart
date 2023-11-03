@@ -12,6 +12,11 @@ class AppinioSocialShare {
         .shareToWhatsapp(message, filePath: filePath);
   }
 
+  Future<String> shareToWhatsappBiz(String message, {String? filePath}) {
+    return AppinioSocialSharePlatform.instance
+        .shareToWhatsappBiz(message, filePath: filePath);
+  }
+
   Future<String> shareToTelegram(String message, {String? filePath}) {
     return AppinioSocialSharePlatform.instance
         .shareToTelegram(message, filePath: filePath);

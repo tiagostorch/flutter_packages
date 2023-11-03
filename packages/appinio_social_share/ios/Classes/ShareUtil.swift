@@ -316,7 +316,24 @@ public class ShareUtil{
             result(ERROR_APP_NOT_AVAILABLE);
         }
     }
-    
+
+    func shareToWhatsAppBiz(args : [String: Any?],result: @escaping FlutterResult)  {
+        let message = args[self.argMessage] as? String
+        let whatsURL = "whatsapp://send?text="+message!
+        
+        var characterSet = CharacterSet.urlQueryAllowed
+        characterSet.insert(charactersIn: "?&")
+        let whatsAppURL  = NSURL(string: whatsURL.addingPercentEncoding(withAllowedCharacters: characterSet)!)
+        if UIApplication.shared.canOpenURL(whatsAppURL! as URL)
+        {
+            UIApplication.shared.openURL(whatsAppURL! as URL)
+            result(SUCCESS);
+        }
+        else
+        {
+            result(ERROR_APP_NOT_AVAILABLE);
+        }
+    }
     
     
     func shareToFacebookPost(args : [String: Any?],result: @escaping FlutterResult, delegate: SharingDelegate) {

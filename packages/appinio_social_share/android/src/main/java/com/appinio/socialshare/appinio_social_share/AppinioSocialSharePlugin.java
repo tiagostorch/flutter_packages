@@ -31,6 +31,7 @@ public class AppinioSocialSharePlugin implements FlutterPlugin, MethodCallHandle
     private final String MESSENGER = "messenger";
     private final String FACEBOOK_STORIES = "facebook_stories";
     private final String WHATSAPP = "whatsapp";
+    private final String WHATSAPP_BIZ = "whatsapp_biz";
     private final String TWITTER = "twitter";
     private final String SMS = "sms";
     private final String TIKTOK = "tiktok_status";
@@ -99,6 +100,8 @@ public class AppinioSocialSharePlugin implements FlutterPlugin, MethodCallHandle
                 return null;
             case WHATSAPP:
                 return socialShareUtil.shareToWhatsApp(imagePath, message, activeContext);
+            case WHATSAPP_BIZ:
+                return socialShareUtil.shareToWhatsAppBiz(imagePath, message, activeContext);
             case TELEGRAM:
                 return socialShareUtil.shareToTelegram(imagePath, activeContext, message);
             case TWITTER:

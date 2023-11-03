@@ -14,6 +14,7 @@ class MethodChannelAppinioSocialShare extends AppinioSocialSharePlatform {
   final String messenger = "messenger";
   final String facebookStories = "facebook_stories";
   final String whatsapp = "whatsapp";
+  final String whatsappBiz = "whatsapp_biz";
   final String twitter = "twitter";
   final String sms = "sms";
   final String tiktokStatus = "tiktok_status";
@@ -66,6 +67,13 @@ class MethodChannelAppinioSocialShare extends AppinioSocialSharePlatform {
   Future<String> shareToWhatsapp(String message, {String? filePath}) async {
     return ((await methodChannel.invokeMethod<String>(
             whatsapp, {"imagePath": filePath, "message": message})) ??
+        "");
+  }
+
+  @override
+  Future<String> shareToWhatsappBiz(String message, {String? filePath}) async {
+    return ((await methodChannel.invokeMethod<String>(
+            whatsappBiz, {"imagePath": filePath, "message": message})) ??
         "");
   }
 
